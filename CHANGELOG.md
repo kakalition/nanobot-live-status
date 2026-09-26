@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- README now documents installing from Git
+  (`git+https://github.com/kakalition/nanobot-live-status`) while the package
+  is not yet published on PyPI.
+
 ## [0.1.0] - 2026-09-26
 
 ### Added

@@ -14,8 +14,9 @@ Three commands and one chat message. Full details follow below.
 
 ```bash
 # 1. Install the plugin into nanobot's own tool environment.
-#    (From a local checkout, replace the name with the repo path.)
-uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" nanobot-live-status
+#    (Not on PyPI yet; install straight from Git.)
+uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" \
+  "git+https://github.com/kakalition/nanobot-live-status"
 
 # 2. Hide the noisy "$ command" tool hints (writes a JSON file; no secrets touched).
 python - <<'PY'
@@ -68,22 +69,28 @@ in its **own** Python environment. For the entry point to resolve, the plugin
 must be installed *into that environment* — installing it into your own
 project venv will not be picked up by the running `nanobot`.
 
+The package is not on PyPI yet; install it straight from Git:
+
 ```bash
 # Add the plugin to the existing nanobot tool environment (recommended)
-uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" nanobot-live-status
+uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" \
+  "git+https://github.com/kakalition/nanobot-live-status"
 
 # Or recreate the tool with the plugin included
-uv tool install nanobot-ai --with nanobot-live-status --force
+uv tool install nanobot-ai \
+  --with "git+https://github.com/kakalition/nanobot-live-status" --force
 ```
+
+Pin a revision with `@<ref>`, for example
+`"git+https://github.com/kakalition/nanobot-live-status@<commit-sha>"`.
 
 `pipx` has an explicit inject command:
 
 ```bash
-pipx inject nanobot-ai nanobot-live-status
+pipx inject nanobot-ai "git+https://github.com/kakalition/nanobot-live-status"
 ```
 
-To install from a local checkout instead of PyPI, point the commands at the
-repository path:
+To install from a local checkout instead, point the command at the path:
 
 ```bash
 uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" /path/to/nanobot-live-status
