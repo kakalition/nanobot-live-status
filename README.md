@@ -14,7 +14,7 @@ Three commands and one chat message. Full details follow below.
 
 ```bash
 # 1. Install the plugin into nanobot's own tool environment.
-#    (Not on PyPI yet; install straight from Git.)
+#    (Install straight from GitHub.)
 uv pip install --python "$(uv tool dir)/nanobot-ai/bin/python" \
   "git+https://github.com/kakalition/nanobot-live-status"
 
@@ -69,7 +69,7 @@ in its **own** Python environment. For the entry point to resolve, the plugin
 must be installed *into that environment* — installing it into your own
 project venv will not be picked up by the running `nanobot`.
 
-The package is not on PyPI yet; install it straight from Git:
+Install it straight from the GitHub repository:
 
 ```bash
 # Add the plugin to the existing nanobot tool environment (recommended)
